@@ -1,80 +1,15 @@
-const apiUrl = 'http://localhost:3000/transporte'; 
+document.getElementById('carbonForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const transport = parseFloat(document.getElementById('transport').value);
+    const energy = parseFloat(document.getElementById('energy').value);
+    const waste = parseFloat(document.getElementById('waste').value);
 
-async function obterTransporte() {
-    try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-        console.log('Dados de transporte:', data);
-    } catch (error) {
-        console.error('Erro ao obter dados de transporte:', error);
-    }
-}
-
-async function adicionarTransporte() {
-    const distancia = document.getElementById('distancia').value;
-    const veiculo = document.getElementById('veiculo').value;
-
-    const novoTransporte = {
-        km: distancia,
-        veiculo: veiculo
-    };
-
-    try {
-        const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(novoTransporte)
-        });
-        const data = await response.json();
-        console.log('Transporte adicionado:', data);
-    } catch (error) {
-        console.error('Erro ao adicionar transporte:', error);
-    }
-}
-
-async function atualizarTransporte() {
-    const id = prompt('Digite o ID do transporte a ser atualizado:');
-    const distancia = document.getElementById('distancia').value;
-    const veiculo = document.getElementById('veiculo').value;
-
-    const transporteAtualizado = {
-        km: distancia,
-        veiculo: veiculo
-    };
-
-    try {
-        const response = await fetch(`${apiUrl}/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(transporteAtualizado)
-        });
-        const data = await response.json();
-        console.log('Transporte atualizado:', data);
-    } catch (error) {
-        console.error('Erro ao atualizar transporte:', error);
-    }
-}
-
-async function deletarTransporte() {
-    const id = prompt('Digite o ID do transporte a ser deletado:');
-
-    try {
-        const response = await fetch(`${apiUrl}/${id}`, {
-            method: 'DELETE'
-        });
-        if (response.ok) {
-            console.log('Transporte deletado com sucesso');
-        } else {
-            console.error('Erro ao deletar transporte');
-        }
-    } catch (error) {
-        console.error('Erro ao deletar transporte:', error);
-    }
-}
-
-
-window.onload = obterTransporte;
+    const transportEmission = transport  0.21;  Emissão por km (em kg CO2e)
+    const energyEmission = energy  0.233;  Emissão por kWh (em kg CO2e)
+    const wasteEmission = waste  52  0.1;  Emissão por kg de resíduos (em kg CO2e por ano dividido por 52 semanas)
+    
+    const totalEmission = transportEmission + energyEmission + wasteEmission;
+    
+    document.getElementById('carbonOutput').innerText = `Sua emissão de carbono é de aproximadamente ${totalEmission.toFixed(2)} kg de CO2e por dia.`;
+});

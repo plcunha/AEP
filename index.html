@@ -3,38 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CarbonTrack</title>
+    <title>Monitor de Emissão de Carbono</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>CarbonTrack</h1>
-        <h2>Aplicação web de Monitoramento de monitoramento de carbono.</h2>
-    </header>
-    <main>
-        <div class="intro">
-            <div class="FTiltle">O que é CarbonTrack?</div>
-            <div class="subtitle">
-                <p>CarbonTrack é uma aplicação web inovadora projetada para ajudar os usuários a calcular e monitorar sua pegada de carbono pessoal
-                    <br> com base em suas atividades diárias. Através de uma interface amigável e intuitiva, CarbonTrack permite que os usuários registrem e analisem o impacto ambiental de suas escolhas no transporte, alimentação e consumo de energia.</p>
+    <div class="container">
+        <h1>Monitor de Emissão de Carbono</h1>
+        <form id="carbonForm">
+            <div class="form-group">
+                <label for="transport">Transporte (km percorridos por dia):</label>
+                <input type="number" id="transport" name="transport" min="0" required>
             </div>
+            <div class="form-group">
+                <label for="energy">Consumo de Energia (kWh por mês):</label>
+                <input type="number" id="energy" name="energy" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="waste">Resíduos gerados (kg por semana):</label>
+                <input type="number" id="waste" name="waste" min="0" required>
+            </div>
+            <button type="submit">Calcular Emissão</button>
+        </form>
+        
+        <div id="result">
+            <h2>Sua Emissão de Carbono</h2>
+            <p id="carbonOutput">Preencha os dados e clique em "Calcular Emissão"</p>
         </div>
-        <section id="features" class="features">
-            <ul>
-                <li>Calcule sua pegada de carbono com base em suas atividades diárias.</li>
-                <li>Monitore seu impacto ambiental ao longo do tempo.</li>
-                <li>Receba dicas personalizadas para reduzir sua pegada de carbono.</li>
-            </ul>
-        </section>
-        <section id="activities" class="activities">
-            <h2>Monitorar atividades</h2>
-            <button onclick=""><a href="calc-emissão/index.html" class="ahref">Monitorar a taxa de carbono diaria</a></button>
-           
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Aplicativo de Monitoramento de Pegada de Carbono. Todos os direitos reservados.</p>
-    </footer>
-    
+        <button><a href="javascript: history.go(-1)" class="ahref">Voltar</a></button>
+        
+    </div>
+    <script src="index.js"></script>
 </body>
 </html>
