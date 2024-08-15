@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(240, 240, 240);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px grey;
+    width: 90%;
+    max-width: 500px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: grey;
+}
+.ahref{
+    text-decoration:none;
+    color: inherit; 
+   
+    
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    margin-bottom: 5px;
+    color: grey;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: grey;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: grey;
+}
+
+#result {
+    margin-top: 20px;
+    text-align: center;
+    background-color: rgb(224, 222, 222);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#carbonOutput {
+    color: grey;
+    font-weight: bold;
+}

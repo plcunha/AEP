@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor de Emissão de Carbono</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Monitor de Emissão de Carbono</h1>
+        <form id="carbonForm">
+            <div class="form-group">
+                <label for="transport">Transporte (km percorridos por dia):</label>
+                <input type="number" id="transport" name="transport" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="energy">Consumo de Energia (kWh por mês):</label>
+                <input type="number" id="energy" name="energy" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="waste">Resíduos gerados (kg por semana):</label>
+                <input type="number" id="waste" name="waste" min="0" required>
+            </div>
+            <button type="submit">Calcular Emissão</button>
+        </form>
+        
+        <div id="result">
+            <h2>Sua Emissão de Carbono</h2>
+            <p id="carbonOutput">Preencha os dados e clique em "Calcular Emissão"</p>
+        </div>
+        <button><a href="javascript: history.go(-1)" class="ahref">Voltar</a></button>
+        
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
